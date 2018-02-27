@@ -10,6 +10,7 @@ import net.gudenau.lib.annotation.NonNull;
 import net.gudenau.lib.annotation.Nullable;
 import net.gudenau.lib.argument.implementation.DoubleArgument;
 import net.gudenau.lib.argument.implementation.EmptyArgument;
+import net.gudenau.lib.argument.implementation.EnumArgumentImplementation;
 import net.gudenau.lib.argument.implementation.FileArgument;
 import net.gudenau.lib.argument.implementation.IntegerArgument;
 import net.gudenau.lib.argument.implementation.Pair;
@@ -187,6 +188,24 @@ public class ArgumentParser{
     
     public ArgumentParser registerArgument(@NonNull String name, @Nullable int defaultValue, boolean required){
         return registerArgument(name, new IntegerArgument(defaultValue, required));
+    }
+    
+    // ---------- Enumeration ----------
+    
+    public <T extends Enum<?> & EnumArgument> ArgumentParser registerEnumArgument(@NonNull String name, @NonNull Class<T> type){
+        return registerEnumArgument(name, false, type);
+    }
+    
+    public <T extends Enum<?> & EnumArgument> ArgumentParser registerEnumArgument(@NonNull String name, boolean required, @NonNull Class<T> type){
+        return registerArgument(name, new EnumArgumentImplementation<T>(null, false, type));
+    }
+    
+    public <T extends Enum<?> & EnumArgument> ArgumentParser registerArgument(@NonNull String name, @Nullable T defaultValue, @NonNull Class<T> type){
+        return registerArgument(name, defaultValue, false, type);
+    }
+    
+    public <T extends Enum<?> & EnumArgument> ArgumentParser registerArgument(@NonNull String name, @Nullable T defaultValue, boolean required, @NonNull Class<T> type){
+        return registerArgument(name, new EnumArgumentImplementation<T>(defaultValue, required, type));
     }
     
     // ---------- Flag ----------
