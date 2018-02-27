@@ -2,6 +2,11 @@ package net.gudenau.lib.argument.implementation;
 
 import net.gudenau.lib.argument.Argument;
 
+/**
+ * @hidden
+ *
+ * Basically a flag.
+ * */
 public final class EmptyArgument implements Argument<Boolean>{
     @Override
     public boolean isRequired(){

@@ -2,6 +2,11 @@ package net.gudenau.lib.argument.implementation;
 
 import net.gudenau.lib.argument.Argument;
 
+/**
+ * @hidden
+ *
+ * A simple floating point argument.
+ * */
 public class DoubleArgument implements Argument<Double>{
     private final double defaultValue;
     private final boolean required;

@@ -2,6 +2,11 @@ package net.gudenau.lib.argument.implementation;
 
 import net.gudenau.lib.argument.Argument;
 
+/**
+ * @hidden
+ *
+ * A simple integer based argument.
+ * */
 public class IntegerArgument implements Argument<Integer>{
     private final int defaultValue;
     private final boolean required;

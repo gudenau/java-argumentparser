@@ -1,5 +1,13 @@
 package net.gudenau.lib.argument.implementation;
 
+/**
+ * @hidden
+ *
+ * A simple object that is used to map two things to a single value.
+ *
+ * @param <T> The first type
+ * @param <T1> The second type
+ * */
 public class Pair<T, T1>{
     private final T item1;
     private final T1 item2;
